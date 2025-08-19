@@ -23,8 +23,16 @@ class UserStructureTest {
 		// Este teste só compila se você criar cms.user.User e ajustar AdminUser para
 		// extends User
 		// Ajuste depois de criar a superclasse
-		AdminUser a = new AdminUser(1, "Ana", "ana@x", "123");
+		User a = new AdminUser(1, "Ana", "ana@x", "123");
 		assertEquals("Ana", a.getNome());
 		assertTrue(a.checkPassword("123"));
+		
+		User b = new EditorUser(2, "Isa", "isa@x", "321");
+		assertEquals("Isa", b.getNome());
+		assertTrue(b.checkPassword("321"));
+
+		User c = new GuestUser(3, "Asi", "Asi@x", "456");
+		assertEquals("Asi", c.getNome());
+		assertTrue(c.checkPassword("456"));
 	}
 }
